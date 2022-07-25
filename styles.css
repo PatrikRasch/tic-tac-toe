@@ -1,0 +1,12 @@
+.bruh {
+    background-color: hotpink;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+}
