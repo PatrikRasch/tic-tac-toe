@@ -1,3 +1,17 @@
+.intro {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 400px;
+}
+
+/* .options {
+    /* display: flex; */
+/* } */
+
+/* .icons { */
+/* display: flex; */
+/* } */
+
 .bruh {
     background-color: hotpink;
     font-size: 50px;
@@ -5,8 +19,41 @@
     justify-content: center;
 }
 
+.gameboard-container {
+    display: flex;
+    justify-content: center;
+}
+
 .gameboard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 50%;
+    font-size: 75px;
+    width: 400px;
+    height: 400px;
+    justify-items: center;
+    align-items: center;
+}
+
+.spot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.spot:nth-child(2),
+.spot:nth-child(8) {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.spot:nth-child(4),
+.spot:nth-child(6) {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.spot:nth-child(5n) {
+    border: 1px solid black;
 }
