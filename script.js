@@ -7,6 +7,87 @@ const gameboard = (function () {
 
 const plays = gameboard.playingField;
 
+const gameboardContainer = document.querySelector(".gameboard-container");
+const board = document.querySelector(".gameboard");
+
+const renderGameboard = (function () {
+    function addElements() {
+        for (i = 0; i < plays.length; i++) {
+            const temp = document.createElement("div");
+            temp.textContent = ""
+            plays[i] = temp.textContent;
+            temp.id = (plays[i] + (i + 1));
+            board.appendChild(temp);
+            temp.classList.add("spot");
+        }
+    }
+    return { addElements: addElements }
+})();
+
+const game = (function () {
+    function boardClicked() {
+        let yourTurn = true;
+        board.addEventListener("click", (e) => {
+            // console.log(e.target.id)
+            if (e.target.classList.contains("disabled")) { return }
+            if (yourTurn == true) {
+                e.target.classList.add("x")
+                e.target.classList.add("disabled")
+                yourTurn = false;
+            } else {
+                e.target.classList.add("o")
+                e.target.classList.add("disabled")
+                yourTurn = true;
+            }
+        })
+    }
+    xState: [];
+    oState: [];
+    winningStates: [
+        ['0', '1', '2'],
+        ['3', '4', '5'],
+        ['6', '7', '8'],
+
+        ['0', '4', '8'],
+        ['2', '4', '6'],
+
+        ['0', '3', '6'],
+        ['1', '4', '7'],
+        ['2', '5', '8'],
+    ]
+    return { boardClicked: boardClicked }
+})();
+
+game.boardClicked();
+
+const playerFactory = (name, number) => {
+    return {
+        name,
+        number,
+        greetPlayer() {
+            console.log("Hello " + name + ". You are player " + number);
+        }
+    }
+};
+
+const player1 = playerFactory("Patrik", 1);
+player1.greetPlayer();
+
+const player2 = playerFactory("Annabelle", 2);
+player2.greetPlayer();
+
+const playerClicks = (player1, player2) => {
+
+}
+
+// const spotClicked = renderGameboard.addElements;
+
+// const playersClick = (function () {
+//     function clickSpot() {
+
+//     }
+// })();
+
 // let bro = plays.map(function (_, i) {
 //     let el = document.createElement("div");
 //     el.textContent = plays.splice(i, 1, i + 1);
@@ -19,30 +100,9 @@ const plays = gameboard.playingField;
 // console.log(el.textContent);
 // return el;
 
-const gameboardContainer = document.querySelector(".gameboard-container");
-const board = document.querySelector(".gameboard");
-// gameboardContainer.append(board)
 
-const renderGameboard = (function () {
-    function addElements() {
-        for (i = 0; i < plays.length; i++) {
-            const temp = document.createElement("div");
-            temp.textContent = ""
-            // Math.random() < 0.5 ? "X" : "O";
-            plays[i] = temp.textContent;
-            temp.id = ("id-text" + plays[i] + (i + 1));
-            board.appendChild(temp);
-            // temp.classList.add("gameboard");
-            temp.classList.add("spot");
-            temp.addEventListener("click", (e) => {
-                console.log(temp.id)
-            })
-        }
-        console.log(plays);
-        // return numberedArray
-    }
-    return { addElements: addElements, }
-})();
+
+
 
 const renderedGameboard = renderGameboard.addElements();
 // console.log(renderGameboard.addElements);
@@ -84,27 +144,6 @@ const renderedGameboard = renderGameboard.addElements();
 // )();
 // renderGameboard.render();
 
-const gameboardClicked = (function () {
-    clicked = function () {
-
-    }
-})();
-
-const playerFactory = (name, number) => {
-    return {
-        name,
-        number,
-        greetPlayer() {
-            console.log("Hello " + name + ". You are player " + number);
-        }
-    }
-};
-
-const player1 = playerFactory("Patrik", 1);
-player1.greetPlayer();
-
-const player2 = playerFactory("Annabelle", 2);
-player2.greetPlayer();
 
 
 // 2. You're going to store the gameboard as an array inside of a Gameboard object, so start there! Your players are also going to be stored in objects. and you're probably going to want an object to control the flow of the game itself.
