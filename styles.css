@@ -1,167 +1,184 @@
 .intro {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
-    margin-top: 75px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  margin-top: 75px;
 }
 
 .options {
-    display: flex;
-    font-size: 25px;
+  display: flex;
+  font-size: 25px;
 }
 
 .icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
 }
 
 .circle {
-    margin-left: 100px;
-    transition: 0.5s;
+  margin-left: 100px;
+  transition: 0.5s;
 }
 
 .cross {
-    transition: 0.5s;
+  transition: 0.5s;
 }
 
 .circle:hover,
 .cross:hover {
-    transform: scale(1.1) rotate(180deg);
-    cursor: pointer;
-    transition: 0.5s;
+  transform: scale(1.1) rotate(180deg);
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .circle:active,
 .cross:active {
-    transition: 0.1s;
-    transform: scale(1) rotate(180deg);
+  transition: 0.1s;
+  transform: scale(1) rotate(180deg);
 }
 
 .bruh {
-    background-color: hotpink;
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
+  background-color: hotpink;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .gameboard-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .gameboard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 75px;
-    width: 400px;
-    height: 400px;
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 75px;
+  width: 400px;
+  height: 400px;
+  justify-items: center;
+  align-items: center;
 }
 
 .spot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .disabled {
-    cursor: not-allowed;
-    /* pointer-events: none; */
+  cursor: not-allowed;
+  /* pointer-events: none; */
 }
 
 .spot:not(.disabled):hover {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .x {
-    /* background-color: blue; */
-    background-image: url(img/x.png);
-    background-size: 65%;
-    background-repeat: no-repeat;
-    background-position: center;
+  /* background-color: blue; */
+  background-image: url(img/trump1.jpeg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .o {
-    /* background-color: red; */
-    background-image: url(img/o.png);
-    background-size: 65%;
-    background-repeat: no-repeat;
-    background-position: center;
+  /* background-color: red; */
+  background-image: url(img/putin1.jpeg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .spot:nth-child(2),
 .spot:nth-child(8) {
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 
 .spot:nth-child(4),
 .spot:nth-child(6) {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .spot:nth-child(5n) {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .modal-bg {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.24);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .bg-active {
-    visibility: visible;
-    opacity: 1;
-    z-index: 10;
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
 }
 
 .modal {
-    position: relative;
-    font-family: monospace;
-    background-color: white;
-    width: 475px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    border-radius: 10px;
-    transform: scale(0.1);
-    transition: 0.5s;
+  position: absolute;
+  font-family: monospace;
+  background-color: white;
+  width: 475px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  border-radius: 10px;
+  transform: scale(0.1);
+  transition: 0.5s;
 }
 
 .modal-active {
-    transform: scale(1);
+  transform: scale(1);
 }
 
-.acceptLoss, .negotiate {
-    font-size: 25px;
-    cursor: pointer;
-    transition: 0.1s;
+.modalCall {
+  margin-bottom: 25px;
 }
 
-.acceptLoss:active {
-    transform: scale(0.9);
+.playAgain {
+  cursor: pointer;
+  border: 10px solid black;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  transition: 0.1s;
 }
+
+.playAgain:hover {
+  transform: scale(0.95);
+}
+
+.modalCall,
+.playAgain {
+  font-size: 25px;
+  transition: 0.1s;
+}
+
+/* .acceptLoss:active {
+  transform: scale(0.9);
+} */
