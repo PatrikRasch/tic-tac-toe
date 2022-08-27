@@ -1,16 +1,43 @@
 .intro {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 400px;
+    justify-content: center;
+    margin-top: 75px;
 }
 
-/* .options {
-    /* display: flex; */
-/* } */
+.options {
+    display: flex;
+    font-size: 25px;
+}
 
-/* .icons { */
-/* display: flex; */
-/* } */
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.circle {
+    margin-left: 100px;
+    transition: 0.5s;
+}
+
+.cross {
+    transition: 0.5s;
+}
+
+.circle:hover,
+.cross:hover {
+    transform: scale(1.1) rotate(180deg);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.circle:active,
+.cross:active {
+    transition: 0.1s;
+    transform: scale(1) rotate(180deg);
+}
 
 .bruh {
     background-color: hotpink;
@@ -51,12 +78,25 @@
     background-color: #eee;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .x {
-    background-color: blue;
+    /* background-color: blue; */
+    background-image: url(img/x.png);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .o {
-    background-color: red;
+    /* background-color: red; */
+    background-image: url(img/o.png);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .spot:nth-child(2),
@@ -73,4 +113,55 @@
 
 .spot:nth-child(5n) {
     border: 1px solid black;
+}
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+}
+
+.modal {
+    position: relative;
+    font-family: monospace;
+    background-color: white;
+    width: 475px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    border-radius: 10px;
+    transform: scale(0.1);
+    transition: 0.5s;
+}
+
+.modal-active {
+    transform: scale(1);
+}
+
+.acceptLoss, .negotiate {
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.acceptLoss:active {
+    transform: scale(0.9);
 }
