@@ -4,22 +4,67 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/x.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
     <title>Tic Tac Toe</title>
   </head>
 
   <body>
-    <div class="gameboard-container">
-      <div class="gameboard"></div>
+    <div class="players">
+      <div class="player1">
+        <div class="leftside">
+          <form action="" method="post">
+            <label for="player1form"></label>
+            <input
+              type="text"
+              class="player1form"
+              id="player1form"
+              placeholder="Player 1"
+              maxlength="13"
+              autocomplete="off"
+            />
+          </form>
+          <div class="icon1">
+            <img src="img/usflag.png" alt="" class="flags" />
+          </div>
+        </div>
+        <div class="rightside">
+          <div class="points">Score</div>
+          <div class="player1score"></div>
+        </div>
+      </div>
+      <div class="tictactoe">
+        <div class="tic">TIC</div>
+        <div class="tac">TAC</div>
+        <div class="toe">TOE</div>
+      </div>
+      <div class="player2">
+        <div class="leftside">
+          <form action="" method="post">
+            <label for="player2form"></label>
+            <input
+              type="text"
+              class="player2form"
+              id="player2form"
+              placeholder="Player 2"
+              maxlength="13"
+              autocomplete="off"
+            />
+          </form>
+          <div class="icon2">
+            <img src="img/russiaflag.png" alt="" class="flags" />
+          </div>
+        </div>
+        <div class="rightside">
+          <div class="points">Score</div>
+          <div class="player2score"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="intro">
-      <div class="options">CHOOSE STARTING ICON</div>
-      <div class="icons">
-        <div class="cross">X</div>
-        <div class="circle">O</div>
-      </div>
+    <div class="gameboard-container">
+      <div class="gameboard"></div>
     </div>
 
     <div class="modal-bg">
@@ -27,6 +72,9 @@
         <div class="modalCall"></div>
         <div class="playAgain">Play again</div>
       </div>
+    </div>
+    <div class="restartContainer">
+      <div class="restart">Restart The Game</div>
     </div>
   </body>
 </html>

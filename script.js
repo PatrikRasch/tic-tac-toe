@@ -13,6 +13,16 @@ const modal = document.querySelector(".modal");
 const modalCall = document.querySelector(".modalCall");
 const playAgain = document.querySelector(".playAgain");
 
+const player1form = document.querySelector(".player1form");
+const player2form = document.querySelector(".player2form");
+
+const player1score = document.querySelector(".player1score");
+const player2score = document.querySelector(".player2score");
+player1score.textContent = 0;
+player2score.textContent = 0;
+
+const restartGame = document.querySelector(".restart");
+
 const renderGameboard = (function () {
   function addElements() {
     for (i = 0; i < plays.length; i++) {
@@ -33,6 +43,11 @@ const game = (function () {
     let tieCounter = 0;
 
     board.addEventListener("click", (e) => {
+      if (player1form.value === "" || player2form.value === "") {
+        alert("Name your players");
+        return;
+      }
+
       tieCounter += 1;
       if (tieCounter === 9) {
         modalbg.classList.add("bg-active");
@@ -58,7 +73,6 @@ const game = (function () {
         e.target.classList.add("disabled");
         yourTurn = true;
       }
-
       winTest = (a, b, c, player) => {
         if (
           board.children[a].classList.contains(player) &&
@@ -68,9 +82,11 @@ const game = (function () {
           modalbg.classList.add("bg-active");
           modal.classList.add("modal-active");
           if (player === "x") {
-            modalCall.textContent = "Trump won!";
+            modalCall.textContent = player1form.value + " wins! Freedom!!!";
+            player1score.textContent++;
           } else {
-            modalCall.textContent = "Putin won!";
+            modalCall.textContent = player2form.value + " wins! Communism!!!";
+            player2score.textContent++;
           }
 
           //   let audioUS = new Audio("audio/usAnthemCut.mov");
@@ -128,22 +144,28 @@ game.boardClicked();
 const playerFactory = (name, number) => {
   return {
     name,
-    number,
     greetPlayer() {
       console.log("Hello " + name + ". You are player " + number);
     },
   };
 };
 
-const player1 = playerFactory("Patrik", 1);
+const player1 = playerFactory("Patrik");
 player1.greetPlayer();
 
-const player2 = playerFactory("Annabelle", 2);
+const player2 = playerFactory("Annabelle");
 player2.greetPlayer();
 
 const playerClicks = (player1, player2) => {};
 
 const renderedGameboard = renderGameboard.addElements();
+
+restartGame.addEventListener("click", (e) => {
+  player1score.textContent = 0;
+  player2score.textContent = 0;
+  player1form.value = "";
+  player2form.value = "";
+});
 
 // Factory functions are fucking cool compared to regular objects because users can't just
 // overwrite any of the object items if they want to.
