@@ -82,21 +82,20 @@ const game = (function () {
           modalbg.classList.add("bg-active");
           modal.classList.add("modal-active");
           if (player === "x") {
-            modalCall.textContent = player1form.value + " wins! Freedom!!!";
+            modalCall.textContent = player1form.value + " wins for the US!";
             player1score.textContent++;
           } else {
-            modalCall.textContent = player2form.value + " wins! Communism!!!";
+            modalCall.textContent = player2form.value + " wins for Russia!";
             player2score.textContent++;
           }
+          let usSong = new Audio("audio/usSong.mov");
+          let russiaSong = new Audio("audio/russiaSong.mov");
 
-          //   let audioUS = new Audio("audio/usAnthemCut.mov");
-          //   let audioRussian = new Audio("audio/russianAnthemCut.mov");
-
-          //   if (modalCall.textContent === "x won!") {
-          //     audioUS.play();
-          //   } else {
-          //     audioRussian.play();
-          //   }
+          if (!modalCall.textContent.includes("Russia")) {
+            usSong.play();
+          } else {
+            russiaSong.play();
+          }
 
           tieCounter = 0;
           playAgain.addEventListener("click", (e) => {

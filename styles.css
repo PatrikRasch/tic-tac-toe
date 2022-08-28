@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: satoshi;
   src: url(fonts/Satoshi-Black.otf);
@@ -6,6 +11,16 @@
 @font-face {
   font-family: satoshi-light;
   src: url(fonts/Satoshi-Light.otf);
+}
+
+@font-face {
+  font-family: airstrike;
+  src: url(fonts/airstrike.ttf);
+}
+
+@font-face {
+  font-family: coffee-extra;
+  src: url(fonts/Coffee\ Extra.otf);
 }
 
 .players {
@@ -53,30 +68,23 @@
 .tac,
 .toe {
   font-size: 50px;
-  font-family: satoshi;
+  font-family: coffee-extra;
   letter-spacing: 30px;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100vw;
 }
 
 .tic {
-  background-color: blue;
+  background-color: rgb(109, 131, 255);
 }
 .tac {
-  background-color: red;
+  background-color: rgb(206, 255, 203);
 }
 .toe {
-  background-color: hotpink;
+  background-color: rgb(255, 139, 139);
 }
-
-/* .player1 {
-  border-right: 1.75px solid grey;
-} */
-
-/* .player2 {
-  border-left: 1.75px solid grey;
-} */
 
 .leftside {
   margin-left: 25px;
@@ -99,7 +107,6 @@
 }
 
 .icons:hover {
-  /* transform: scale(1.1) rotate(180deg); */
   cursor: pointer;
   transition: 0.5s;
 }
@@ -164,7 +171,6 @@
 
 .disabled {
   cursor: not-allowed;
-  /* pointer-events: none; */
 }
 
 .spot:not(.disabled):hover {
@@ -183,7 +189,6 @@ img {
 }
 
 .x {
-  /* background-color: blue; */
   background-image: url(img/trump1.jpeg);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -191,7 +196,6 @@ img {
 }
 
 .o {
-  /* background-color: red; */
   background-image: url(img/putin1.jpeg);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -216,7 +220,7 @@ img {
 
 .modal-bg {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
@@ -301,8 +305,7 @@ img {
 }
 
 .restart:hover {
-  /* transform: scale(0.98); */
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(255, 148, 148, 0.5);
   font-size: 31px;
 }
 
