@@ -90,11 +90,24 @@ const game = (function () {
           }
           let usSong = new Audio("audio/usSong.mov");
           let russiaSong = new Audio("audio/russiaSong.mov");
+          let trumpSpeaking = new Audio("audio/trumpSpeaking.mov");
+          let russianSpeaking = new Audio("audio/russianSpeaking.mov");
+          let weGotHim = new Audio("audio/weGotHim.mov");
+          let usAnthem = new Audio("audio/usAnthem.mov");
 
           if (!modalCall.textContent.includes("Russia")) {
-            usSong.play();
+            russianSpeaking.play();
+            setTimeout(() => {
+              weGotHim.play();
+            }, 1200);
+            setTimeout(() => {
+              usAnthem.play();
+            }, 1500);
           } else {
-            russiaSong.play();
+            trumpSpeaking.play();
+            setTimeout(() => {
+              russiaSong.play();
+            }, 1500);
           }
 
           tieCounter = 0;
